@@ -34,12 +34,11 @@ class ModifyTask implements Page {
 
   void deleteTask() {
     myList();
-    int taskIndex =
+    int taskChoice =
         Read.readInt(message: 'Selecione uma atividade para apagar:');
-
-    if (taskIndex < allTask.length && taskIndex > 0) {
-      allTask[taskIndex]
-          .finish(); //nao lembro como apagar maps dentro de listas;-;-;-;-;;-;---
+    taskChoice--;
+    if (taskChoice < allTask.length && taskChoice >= 0) {
+      allTask.removeAt(taskChoice);
     }
   }
 
@@ -47,8 +46,8 @@ class ModifyTask implements Page {
     myList();
     int taskIndex =
         Read.readInt(message: 'Selecione uma atividade para finalizar:');
-
-    if (taskIndex < allTask.length && taskIndex > 0) {
+    taskIndex--;
+    if (taskIndex < allTask.length && taskIndex >= 0) {
       allTask[taskIndex].finish();
     }
   }
